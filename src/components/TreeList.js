@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllTrees } from '../services/api';
-import './TreeList.css';
 
 const TreeList = () => {
   const [trees, setTrees] = useState([]);
@@ -23,25 +22,52 @@ const TreeList = () => {
     fetchTrees();
   }, []);
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">{error}</div>;
+  if (loading) {
+    return (
+      <div className="container mt-5">
+        <div className="text-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mt-5">
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="tree-list">
-      <h1>Family Trees</h1>
+    <div className="container mt-4">
+      <h1 className="mb-4">Family Trees</h1>
       {trees.length === 0 ? (
-        <p>No family trees found.</p>
+        <div className="alert alert-info" role="alert">
+          No family trees found.
+        </div>
       ) : (
-        <ul>
+        <div className="list-group">
           {trees.map((tree) => (
-            <li key={tree.id}>
-              <Link to={`/tree/${tree.id}`}>
-                {tree.name || `Tree #${tree.id}`}
-              </Link>
-              {tree.description && <p className="description">{tree.description}</p>}
-            </li>
+            <Link
+              key={tree.id}
+              to={`/tree/${tree.id}`}
+              className="list-group-item list-group-item-action"
+            >
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="mb-1">{tree.name || `Tree #${tree.id}`}</h5>
+              </div>
+              {tree.description && (
+                <p className="mb-1 text-muted">{tree.description}</p>
+              )}
+            </Link>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

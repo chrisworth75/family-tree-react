@@ -1,3 +1,42 @@
+# Family Tree React App
+
+A React application for viewing family trees and their members.
+
+## Features
+
+- List all family trees
+- View detailed tree information with all members and relationships
+- Responsive design
+
+## Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Configure the API URL in `.env`:
+```
+REACT_APP_API_URL=http://localhost:8080
+```
+
+## API Endpoints Used
+
+- `GET /api/trees` - Get all family trees
+- `GET /api/trees/{treeId}/full` - Get tree with all members and relationships
+
+## Backend API Options
+
+This React app can connect to any of the following backend APIs:
+
+- **family-tree-api-java** (Spring Boot) - Port 8080
+- **family-tree-api-quarkus** - Port 8080
+- **family-tree-api-node** - Port 3000
+
+Make sure one of the backend APIs is running before starting the React app.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

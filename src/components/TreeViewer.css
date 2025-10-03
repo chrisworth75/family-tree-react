@@ -1,0 +1,105 @@
+.tree-viewer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.tree-viewer h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tree-description {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.tree-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.members-section h2,
+.relationships-section h2 {
+  color: #444;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.member-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  transition: box-shadow 0.2s;
+}
+
+.member-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.member-card h3 {
+  color: #007bff;
+  margin: 0 0 15px 0;
+  font-size: 1.2em;
+}
+
+.member-card p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.relationships-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.relationship-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.relationship-card p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.relationship-card strong {
+  color: #333;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1em;
+}
+
+.error {
+  color: #d32f2f;
+}
